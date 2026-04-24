@@ -79,14 +79,14 @@ Given the 3-hour time constraint, certain features and optimizations were priori
 3.  Create a `.env` file in the `backend` directory with your MongoDB URI.
     ```
     MONGO_URI="mongodb://localhost:27017/expenseTracker"
-    PORT=3001
+    PORT=9003
     ```
     *(Adjust `MONGO_URI` if your MongoDB instance is hosted elsewhere.)*
 4.  Start the backend server:
     ```bash
     node server.js
     ```
-    The server should be running on `http://localhost:3001` (or your specified PORT).
+    The server should be running on `http://localhost:9003` (or your specified PORT).
 
 ### 2. Frontend Setup
 
@@ -100,7 +100,7 @@ Given the 3-hour time constraint, certain features and optimizations were priori
     ```
 3.  Create a `.env` file in the `frontend` directory to specify the backend API URL:
     ```
-    REACT_APP_API_URL=http://localhost:3001
+    REACT_APP_API_URL=http://localhost:9003
     ```
 4.  Start the frontend development server:
     ```bash
@@ -145,7 +145,7 @@ Given the 3-hour time constraint, certain features and optimizations were priori
 
 **Create a new expense:**
 ```bash
-curl -X POST http://localhost:3001/expenses \
+curl -X POST http://localhost:9003/expenses \
 -H "Content-Type: application/json" \
 -H "X-Request-Id: $(uuidgen)" \
 -d '{
@@ -161,7 +161,7 @@ curl -X POST http://localhost:3001/expenses \
 # First, generate a UUID and save it
 export REQ_ID=$(uuidgen)
 
-curl -X POST http://localhost:3001/expenses \
+curl -X POST http://localhost:9003/expenses \
 -H "Content-Type: application/json" \
 -H "X-Request-Id: $REQ_ID" \
 -d '{
@@ -174,15 +174,15 @@ curl -X POST http://localhost:3001/expenses \
 
 **Get all expenses:**
 ```bash
-curl http://localhost:3001/expenses
+curl http://localhost:9003/expenses
 ```
 
 **Get expenses filtered by category "Food":**
 ```bash
-curl "http://localhost:3001/expenses?category=Food"
+curl "http://localhost:9003/expenses?category=Food"
 ```
 
 **Get expenses sorted by date (newest first):**
 ```bash
-curl "http://localhost:3001/expenses?sort=date_desc"
+curl "http://localhost:9003/expenses?sort=date_desc"
 ```
