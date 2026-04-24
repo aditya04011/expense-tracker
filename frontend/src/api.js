@@ -2,7 +2,7 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
 const api = axios.create({
-    baseURL: 'http://localhost:9003',
+    baseURL: process.env.REACT_APP_API_URL || 'http://localhost:9003',
 });
 
 // Interceptor to add X-Request-Id to all POST requests
